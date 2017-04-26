@@ -1,0 +1,18 @@
+<div id="chmodder" class="report-widget">
+    <h3><?= $this->property("title"); ?></h3>
+    <form class="form-horizontal">
+    	<div class="form-group">
+    		<label>Free Folders:</label>
+    	</div>
+    	<div class="form-group">
+		    <?php foreach($vars['folders'] as $i => $folder) : ?>
+		    <label><input type="checkbox" name="folder[]" id="folder_<?php echo $i ?>" value="<?php echo $i ?>">&nbsp;<?php echo $i ?></label><br>
+		    <?php endforeach; ?>
+		</div>
+	    <div class="form-group">
+	    	<button type="button" class="btn btn-success" data-request="<?= $this->getEventHandler('onChMod') ?>" data-request-success="$('#chmodder_result').replaceWith(data.partial);">Free Folders now <span class="fa icon-unlock"></span>
+	    	</button>
+		</div>
+	</form>
+    <div id="chmodder_result"></div>
+</div>
